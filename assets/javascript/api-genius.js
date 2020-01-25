@@ -26,7 +26,7 @@ $("#search-btn").on("click", function () {
 
         var lyricUrl = response.response.hits[0].result.url
 
-var html = (await (await fetch(lyricUrl)).text()); // html as text
+var html = lyricUrl.text(); // html as text
 // var doc = new DOMParser().parseFromString(html, 'text/html');
 // doc.title; doc.body;
    
