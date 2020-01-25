@@ -1,0 +1,20 @@
+body {
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+}
+
+#header {
+    margin-bottom: 50px;
+    height: 100px;
+    
+}
+
+.brand-logo {
+    margin-left: 20px;
+    
+}
+
+#video-div {
+    margin-top: 20px;
+}
