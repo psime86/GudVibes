@@ -1,8 +1,8 @@
 $("#search-btn").on("click", function () {
 
-    console.log($("#search-btn").val());
+    console.log($(".validate").val());
 
-    var query = $("#search-btn").val().trim();
+    var query = $(".validate").val().trim();
     var queryURL = "https://api.genius.com/search?q=" + query + "&&access_token=ijk3l-8zYdlGBiGFusHTgnY1pZNO70YL78V3ZIPR7QJQrEZFT8HzV6RTPGZStOX8"
 
     // fetch('https://api.genius.com/artists/16775?access_token=ijk3l-8zYdlGBiGFusHTgnY1pZNO70YL78V3ZIPR7QJQrEZFT8HzV6RTPGZStOX8')
@@ -14,13 +14,23 @@ $("#search-btn").on("click", function () {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (results) {
+    }).then(function (response) {
 
-        
+        console.log(queryURL)
 
-        console.log(results);
+        console.log(response);
 
         console.log("clicked");
-    })
+
+        console.log(response.response.hits[0].result.url);
+
+        var lyricUrl = response.response.hits[0].result.url
+
+var html = (await (await fetch(lyricUrl)).text()); // html as text
+// var doc = new DOMParser().parseFromString(html, 'text/html');
+// doc.title; doc.body;
+   
+        console.log(html)
+})
 
 });
