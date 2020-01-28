@@ -9,11 +9,11 @@ var search = $("#search-field").val().trim();
 console.log(search);
 
 // YoutTube API and AJAX call
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
+    var queryURL2 = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
          "&key=AIzaSyB21l2vM6B11Bltdq3Yj_YI7jetMu9ZjLo&limit=5";
 
          $.ajax({
-             url: queryURL,
+             url: queryURL2,
              method: "GET"
          })
          
