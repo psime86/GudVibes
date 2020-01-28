@@ -1,36 +1,25 @@
 $("#search-btn").on("click", function () {
 
-    console.log($(".validate").val());
+    $("#lyric-div").text("");
 
     var query = $(".validate").val().trim();
     var queryURL = "https://api.genius.com/search?q=" + query + "&&access_token=ijk3l-8zYdlGBiGFusHTgnY1pZNO70YL78V3ZIPR7QJQrEZFT8HzV6RTPGZStOX8"
 
-    // fetch('https://api.genius.com/artists/16775?access_token=ijk3l-8zYdlGBiGFusHTgnY1pZNO70YL78V3ZIPR7QJQrEZFT8HzV6RTPGZStOX8')
-    // .then(response => response.json())
-    // .then(json => {
-    //   document.write(JSON.stringify(json));
-    // });
+    $("#search-field").val("");
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
 
-        console.log(queryURL)
-
-        console.log(response);
-
-        console.log("clicked");
-
-        console.log(response.response.hits[0].result.url);
-
         var lyricUrl = response.response.hits[0].result.url
+        var fullTitle = response.response.hits[0].result.full_title
+        var image = response.response.hits[0].result.header_image_thumbnail_url
 
-var html = lyricUrl.text(); // html as text
-// var doc = new DOMParser().parseFromString(html, 'text/html');
-// doc.title; doc.body;
-   
-        console.log(html)
-})
+        $("#lyric-div").append("<h3>" + fullTitle + "</h3>");
+        $("#lyric-div").append("<h3><a href=" + lyricUrl + " target=_blank>Lyrics</a></h3>");
+        $("#lyric-div").append("<img src='" + image + "'</img>");
+
+    })
 
 });
