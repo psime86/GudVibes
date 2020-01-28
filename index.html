@@ -11,8 +11,10 @@
     <link rel="shortcut icon" href="assets/images/music-note.ico" />
     <!--CSS Reset Link-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <!--Materialize Link-->
+    <!--Materialize CSS Link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    
     <!--Local CSS Link-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -27,8 +29,8 @@
             <div class="col s8">
                 <div class="row">
                     <div class="input-field ">
-                        <input value="" id="first_name2" type="text" class="validate">
-                        <label class="active" for="first_name2">Song/Artist Search</label>
+                        <input value="" id="search-field" type="text" class="validate">
+                        <label class="active" for="search-field">Song/Artist Search</label>
                         <button class="btn waves-effect waves-light" type="submit" name="action" id="search-btn">Search
                             <i class="material-icons right">send</i>
                         </button>
@@ -62,7 +64,26 @@
           
 
           
-          <div id="lyric-div"></div>
+        <div id="lyric-div"></div>
+
+        
+
+        <ul id="slide-out" class="sidenav">
+          <li><div class="user-view">
+            <div class="background">
+              <img src="">
+            </div>
+            <a href="#user"><img class="circle" src=""></a>
+            <a href="#name"><span class="white-text name">John Doe</span></a>
+            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          </div></li>
+          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+          <li><a href="#!">Second Link</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Subheader</a></li>
+          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+        <a data-target="slide-out" class="waves-effect waves-light btn sidenav-trigger"><i class="material-icons right">playlist_add_check</i>Playlist</a>
           
     </div>
     
@@ -72,6 +93,8 @@
 <!--jQuery-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--app.js link-->
-<script type="text/javascript" src="assets/javascript/app.js"></script>     
+<script type="text/javascript" src="assets/javascript/app.js"></script>   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
