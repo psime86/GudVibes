@@ -9,11 +9,11 @@ var search = $("#search-field").val().trim();
 console.log(search);
 
 // YoutTube API and AJAX call
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
+    var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
          "&key=AIzaSyB21l2vM6B11Bltdq3Yj_YI7jetMu9ZjLo&limit=5";
 
          $.ajax({
-             url: queryURL,
+             url: queryURL2,
              method: "GET"
          })
          
@@ -28,14 +28,14 @@ console.log(search);
                 var videoResult = response.items[i].id.videoId;
                 var videoTitle = response.items[i].snippet.title;
                 var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                var video = $("<img class= 'newVideo'>");
+                var video = $("<iframe class= 'newVideo' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen target= '_parent' ></iframe>");
                 var newVidDiv = $("<div class ='newVidDiv'>");
                 var titleDiv = $("<p>").html("Title: " + videoTitle);
                 console.log(videoResult);
                 console.log(videoTitle);
                 console.log(thumbnail);
                 
-                video.attr("src", "https://www.youtube.com/watch?v=" + videoResult);
+                video.attr("src", "https://www.youtube.com/embed/watch?v=" + videoResult);
                 console.log(video);
                 newVidDiv.append(titleDiv);
                 newVidDiv.prepend(video);
