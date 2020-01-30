@@ -1,21 +1,55 @@
 $(document).ready(function(){
 
-// On click search
-$("#search-btn").on("click", function(event){
-
-event.preventDefault();
-// Var for search bar input
-var search = $("#search-field").val().trim();
-console.log(search);
-
-// YoutTube API and AJAX call
-    var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-         "&key=AIzaSyB21l2vM6B11Bltdq3Yj_YI7jetMu9ZjLo&limit=5";
-
-         $.ajax({
-             url: queryURL2,
-             method: "GET"
-         })
+    // On click search
+    $("#search-btn").on("click", function(event){
+    
+    event.preventDefault();
+    // Var for search bar input
+    var search = $("#search-field").val().trim();
+    console.log(search);
+    
+    // YoutTube API and AJAX call
+        var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
+             "&key=AIzaSyB21l2vM6B11Bltdq3Yj_YI7jetMu9ZjLo&limit=5";
+    
+             $.ajax({
+                 url: queryURL2,
+                 method: "GET"
+             })
+             
+             .then(function(response){
+                console.log(response);
+    
+                // Empty video div
+                $("#search-results").empty();
+    
+                // For loop to run through response
+                for (var i = 0; i < response.items.length; i++){
+                    var videoResult = response.items[i].id.videoId;
+                    var videoTitle = response.items[i].snippet.title;
+                    var thumbnail = response.items[i].snippet.thumbnails.default.url;
+                    var imgDiv = $("<img>").attr("src", thumbnail);
+                    var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
+                    var newVidDiv = $("<div class ='newVidDiv'>");
+                    var titleDiv = $("<p>").html("Title: " + videoTitle);
+                    console.log(videoResult);
+                    console.log(videoTitle);
+                    console.log(thumbnail);
+                    
+                    video.attr("src", "https://www.youtube.com/embed/watch?v=" + videoResult + "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+                    console.log(video);
+                    newVidDiv.append(titleDiv);
+                    newVidDiv.prepend(imgDiv);
+                    $("#search-results").prepend(newVidDiv);
+                }
+    
+    
+             })
+    
+             $("#lyric-div").text("");
+    
+             var query = $(".validate").val().trim();
+             var queryURL = "https://api.genius.com/search?q=" + query + "&&access_token=ijk3l-8zYdlGBiGFusHTgnY1pZNO70YL78V3ZIPR7QJQrEZFT8HzV6RTPGZStOX8"
          
          .then(function(response){
             console.log(response);
