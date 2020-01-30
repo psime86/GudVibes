@@ -35,7 +35,7 @@ console.log(search);
                 console.log(videoTitle);
                 console.log(thumbnail);
                 
-                video.attr("src", "https://www.youtube.com/watch?v=" + videoResult);
+                video.attr("src", "https://www.youtube.com/watch?v=" + thumbnail);
                 console.log(video);
                 newVidDiv.append(titleDiv);
                 newVidDiv.prepend(video);
