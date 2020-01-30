@@ -40,7 +40,7 @@ console.log(search);
                 console.log(video);
                 newVidDiv.append(titleDiv);
                 newVidDiv.prepend(imgDiv);
-                $("#search-results").prepend(newVidDiv);
+                $("#search-results").append(newVidDiv);
             }
 
 
@@ -69,4 +69,8 @@ console.log(search);
          })
      
      });
+    
+    
+    
+    
     })
