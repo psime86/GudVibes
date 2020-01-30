@@ -36,49 +36,23 @@ $(document).ready(function(){
                     console.log(videoTitle);
                     console.log(thumbnail);
                     
-                    video.attr("src", "https://www.youtube.com/embed/watch?v=" + videoResult + "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+                    video.attr("src", "https://www.youtube.com/embed/" + videoResult + "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
                     console.log(video);
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
-                    $("#search-results").prepend(newVidDiv);
+                    $("#search-results").append(newVidDiv);
+
+                    $(".newVidDiv").on("click", function(){
+                        $("#video-div").empty();
+
+                        $("#video-div").html(video);
+                    })
                 }
-    
-    
-             })
-    
-             $("#lyric-div").text("");
-    
-             var query = $(".validate").val().trim();
-             var queryURL = "https://api.genius.com/search?q=" + query + "&&access_token=ijk3l-8zYdlGBiGFusHTgnY1pZNO70YL78V3ZIPR7QJQrEZFT8HzV6RTPGZStOX8"
-         
-         .then(function(response){
-            console.log(response);
 
-            // Empty video div
-            $("#search-results").empty();
-
-            // For loop to run through response
-            for (var i = 0; i < response.items.length; i++){
-                var videoResult = response.items[i].id.videoId;
-                var videoTitle = response.items[i].snippet.title;
-                var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                var imgDiv = $("<img>").attr("src", thumbnail);
-                var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
-                var newVidDiv = $("<div class ='newVidDiv'>");
-                var titleDiv = $("<p>").html("Title: " + videoTitle);
-                console.log(videoResult);
-                console.log(videoTitle);
-                console.log(thumbnail);
                 
-                video.attr("src", "https://www.youtube.com/embed/watch?v=" + videoResult + "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
-                console.log(video);
-                newVidDiv.append(titleDiv);
-                newVidDiv.prepend(imgDiv);
-                $("#search-results").append(newVidDiv);
-            }
-
-
-         })
+    
+    
+    })
 
          $("#lyric-div").text("");
 
