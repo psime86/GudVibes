@@ -36,7 +36,7 @@ $(document).ready(function(){
                     console.log(videoTitle);
                     console.log(thumbnail);
                     
-                    video.attr("src", "http://www.youtube.com/embed/" + videoResult);
+                    video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     console.log(video);
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
