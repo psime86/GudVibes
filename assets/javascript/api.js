@@ -36,23 +36,25 @@ $(document).ready(function(){
                     console.log(videoTitle);
                     console.log(thumbnail);
                     
-                    video.attr("src", "https://www.youtube.com/embed/" + videoResult + "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+                    video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     console.log(video);
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
-                    $("#search-results").append(newVidDiv);
+                    $("#search-results").prepend(newVidDiv);
 
                     $(".newVidDiv").on("click", function(){
                         $("#video-div").empty();
-
+                        
                         $("#video-div").html(video);
+
+                        console.log(video);
+                    
                     })
                 }
-
-                
     
     
-    })
+             })
+    
 
          $("#lyric-div").text("");
 
