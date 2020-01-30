@@ -18,3 +18,18 @@ body {
 #video-div {
     margin-top: 20px;
 }
+
+#album {
+
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+#lyrics {
+
+    font-size: 14px;
+    line-height: 1.6;
+
+
+}
