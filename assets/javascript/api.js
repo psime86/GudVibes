@@ -12,7 +12,7 @@ $(document).ready(function () {
     $("#search-btn").on("click keyup", function (event) {
         if (event.which === 13 || event.type === 'click'){
             console.log("clicked");
-            console.log("press");
+            
         }
 
         event.preventDefault();
