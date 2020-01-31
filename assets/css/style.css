@@ -30,20 +30,16 @@ body {
 
     font-size: 14px;
     line-height: 1.6;
-
-
-}
-
-.thumbnail {
-    float: left;
 }
 
 .newVidDiv {
-    overflow: hidden;
-    margin: 5px;
+    text-align: center;
 }
 
-.title {
-    padding-left: 10px;
-    
+.t-img {
+    padding: 5px;
+}
+
+.t-img:hover {
+    border: solid green;
 }
