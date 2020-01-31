@@ -119,4 +119,13 @@ $(document).ready(function () {
 
         });
 
+            $("#songs").on('click', '.newVidDiv', function() {
+
+                var iframe = $("<iframe width= '560' height= '315' class= 'newVideo'>");
+                iframe.attr("src", $(this).attr("data-attr"));
+                $("#video-div").html(iframe);
+                console.log("clicked")
+
+            });
+
         });
