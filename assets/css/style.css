@@ -30,6 +30,16 @@ body {
 
     font-size: 14px;
     line-height: 1.6;
+}
 
+.newVidDiv {
+    text-align: center;
+}
 
+.t-img {
+    padding: 5px;
+}
+
+.t-img:hover {
+    border: solid green;
 }

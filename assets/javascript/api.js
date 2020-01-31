@@ -1,18 +1,10 @@
 $(document).ready(function () {
 
-    var video;
-
-    // $("#search-btn").keyup(function(e){
-    //     if(e.which == 13){
-    //         $("search-btn").click()
-    //     }
-    // });
-
     // On click search
     $("#search-btn").on("click keyup", function (event) {
         if (event.which === 13 || event.type === 'click'){
             console.log("clicked");
-            
+            console.log("press");
         }
 
         event.preventDefault();
@@ -21,7 +13,7 @@ $(document).ready(function () {
 
         // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-            "&key=AIzaSyCS0XzaIbHrCXxUxNeACwaoGhdxahRRhiY";
+        "&key=AIzaSyCS0XzaIbHrCXxUxNeACwaoGhdxahRRhiY";
 
         $.ajax({
             url: queryURL2,
@@ -39,21 +31,15 @@ $(document).ready(function () {
                     var videoResult = response.items[i].id.videoId;
                     var videoTitle = response.items[i].snippet.title;
                     var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                    var imgDiv = $("<img>").attr("src", thumbnail);
+                    var imgDiv = $("<img class = t-img>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<div class ='newVidDiv'>");
-                    var titleDiv = $("<p>").html("Title: " + videoTitle);
+                    var titleDiv = $("<p>").html(videoTitle);
 
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
                     newVidDiv.append(titleDiv);
-                    newVidDiv.append(imgDiv);
-
-                    // var index = response.items.length;
-                    var videoSort = video[0].src;
-                    console.log(videoSort);
-
-
+                    newVidDiv.prepend(imgDiv);
                     $("#search-results").append(newVidDiv);
 
                 }
@@ -128,6 +114,8 @@ $(document).ready(function () {
                 iframe.attr("src", $(this).attr("data-attr"));
                 $("#video-div").html(iframe);
                 console.log("clicked")
+                var playlistItem = $(this).clone(true)
+                $(playlistItem.clone(true)).appendTo("#songs");
 
         });
 
