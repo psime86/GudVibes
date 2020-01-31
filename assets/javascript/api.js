@@ -28,7 +28,7 @@ $(document).ready(function () {
                     var videoResult = response.items[i].id.videoId;
                     var videoTitle = response.items[i].snippet.title;
                     var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                    var imgDiv = $("<img class='thumbnail'>").attr("src", thumbnail);
+                    var imgDiv = $("<img class='thumbnail z-depth-5'>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<div class ='newVidDiv'>");
                     var titleDiv = $("<p>").html("Title: " + videoTitle);
