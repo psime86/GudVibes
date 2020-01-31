@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-            "&key=AIzaSyB21l2vM6B11Bltdq3Yj_YI7jetMu9ZjLo&limit=5";
+        "&key=AIzaSyCS0XzaIbHrCXxUxNeACwaoGhdxahRRhiY";
 
         $.ajax({
             url: queryURL2,
@@ -38,7 +38,7 @@ $(document).ready(function () {
                     newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
-                    $("#search-results").prepend(newVidDiv);
+                    $("#search-results").append(newVidDiv);
 
                 }
 
@@ -112,6 +112,8 @@ $(document).ready(function () {
                 iframe.attr("src", $(this).attr("data-attr"));
                 $("#video-div").html(iframe);
                 console.log("clicked")
+                var playlistItem = $(this).clone(true)
+                $(playlistItem.clone(true)).appendTo("#songs");
 
         });
 
