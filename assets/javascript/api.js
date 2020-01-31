@@ -1,12 +1,21 @@
 $(document).ready(function(){
 
+    // $("#search-btn").keyup(function(e){
+    //     if(e.which == 13){
+    //         $("search-btn").click()
+    //     }
+    // });
+
     // On click search
-    $("#search-btn").on("click", function(event){
-    
+    $("#search-btn").on("keypress click", function(event){
+        var search = $("#search-field").val().trim();
+        console.log(search);
+        if (event.which == 13){
+            $("#search-btn").click();
+        }
+        
+
     event.preventDefault();
-    // Var for search bar input
-    var search = $("#search-field").val().trim();
-    console.log(search);
     
     // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
@@ -40,12 +49,18 @@ $(document).ready(function(){
                     console.log(video);
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
-                    $("#search-results").prepend(newVidDiv);
+
+                    // var index = response.items.length;
+                    var videoSort = video[0].src;
+                    console.log(videoSort);
+
+
+                    $("#search-results").append(newVidDiv);
 
                     $(".newVidDiv").on("click", function(){
                         $("#video-div").empty();
                         
-                        $("#video-div").html(video);
+                        $("#video-div").html("<iframe width= '560' height= '315'" + videoSort);
 
                         console.log(video);
                     
@@ -77,7 +92,7 @@ $(document).ready(function(){
              $("#lyric-div").append("<img src='" + image + "'</img>");
      
          })
-     
+         
      });
     
     
