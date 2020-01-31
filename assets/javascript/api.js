@@ -32,7 +32,7 @@ $(document).ready(function () {
                     var imgDiv = $("<img>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<div class ='newVidDiv'>");
-                    var titleDiv = $("<p>").html("Title: " + videoTitle);
+                    var titleDiv = $("<p>").html(videoTitle);
 
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
@@ -116,5 +116,14 @@ $(document).ready(function () {
                 $(playlistItem.clone(true)).appendTo("#songs");
 
         });
+
+            $("#songs").on('click', '.newVidDiv', function() {
+
+                var iframe = $("<iframe width= '560' height= '315' class= 'newVideo'>");
+                iframe.attr("src", $(this).attr("data-attr"));
+                $("#video-div").html(iframe);
+                console.log("clicked")
+
+            });
 
         });
