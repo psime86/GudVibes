@@ -18,3 +18,17 @@ body {
 #video-div {
     margin-top: 20px;
 }
+
+.thumbnail {
+    float: left;
+}
+
+.newVidDiv {
+    overflow: hidden;
+    margin: 5px;
+}
+
+.title {
+    padding-left: 10px;
+    
+}

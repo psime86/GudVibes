@@ -22,36 +22,47 @@ $(document).ready(function(){
     
                 // Empty video div
                 $("#search-results").empty();
+
+                
     
                 // For loop to run through response
                 for (var i = 0; i < response.items.length; i++){
                     var videoResult = response.items[i].id.videoId;
                     var videoTitle = response.items[i].snippet.title;
                     var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                    var imgDiv = $("<img>").attr("src", thumbnail);
+                    var imgDiv = $("<img class='thumbnail'>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<div class ='newVidDiv'>");
-                    var titleDiv = $("<p>").html("Title: " + videoTitle);
+                    var titleDiv = $("<p class='title'>").html(videoTitle);
                     console.log(videoResult);
                     console.log(videoTitle);
                     console.log(thumbnail);
                     
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
+                    $(".newVidDiv").data("src", "https://www.youtube.com/embed/" + videoResult);
                     console.log(video);
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
                     $("#search-results").prepend(newVidDiv);
-
+                    
                     $(".newVidDiv").on("click", function(){
                         $("#video-div").empty();
                         
                         $("#video-div").html(video);
 
                         console.log(video);
+                        
+                        $("#song1").text(videoTitle.substring(0,30));
+                    
                     
                     })
+
+                    
+                    
                 }
-    
+                $("#search-results").prepend("<h3>Search Results</h3>");
+
+                
     
              })
     
