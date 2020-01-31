@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
-    var video;
-
     // On click search
-    $("#search-btn").on("click", function (event) {
+    $("#search-btn").on("click keyup", function (event) {
+        if (event.which === 13 || event.type === 'click'){
+            console.log("clicked");
+            console.log("press");
+        }
 
         event.preventDefault();
         // Var for search bar input
@@ -29,7 +31,7 @@ $(document).ready(function () {
                     var videoResult = response.items[i].id.videoId;
                     var videoTitle = response.items[i].snippet.title;
                     var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                    var imgDiv = $("<img>").attr("src", thumbnail);
+                    var imgDiv = $("<img class = t-img>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<div class ='newVidDiv'>");
                     var titleDiv = $("<p>").html(videoTitle);
