@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-        "&key=AIzaSyCS0XzaIbHrCXxUxNeACwaoGhdxahRRhiY";
+        "&key=AIzaSyAXYiyVasBWTwKCBMA2c0vql3Mk1mzIYA4";
 
         $.ajax({
             url: queryURL2,
