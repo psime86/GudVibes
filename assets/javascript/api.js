@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-        "&key=AIzaSyAXYiyVasBWTwKCBMA2c0vql3Mk1mzIYA4";
+        "&key=AIzaSyBaestqwPS1ND4XIifl4yncr-EpUHvTPc8";
 
         $.ajax({
             url: queryURL2,
@@ -66,10 +66,10 @@ $(document).ready(function () {
                         var lyricUrl = response.response.hits[0].result.url
                         var fullTitle = response.response.hits[0].result.full_title
                         var image = response.response.hits[0].result.header_image_thumbnail_url
-
-                        $("#lyric-div").append("<h3>" + fullTitle + "</h3>");
-                        $("#lyric-div").append("<h3><a href=" + lyricUrl + " target=_blank>Lyrics</a></h3>");
                         $("#lyric-div").append("<img id='album' src='" + image + "'</img>");
+                        $("#lyric-div").append("<h3 id='lyric-title'>" + fullTitle + "</h3>");
+                        $("#lyric-div").append("<h3><a class='waves-effect waves-light btn lyric-btn' href=" + lyricUrl + " target='_blank'><i class='material-icons right'>music_note</i>Lyrics</a></h3>");
+                        
 
                         
                     
