@@ -37,7 +37,9 @@ $(document).ready(function () {
                     var titleDiv = $("<p>").html(videoTitle.substring(0,37) + "...");
                     
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
-                    newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
+                    newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult + "enablejsapi=1"))
+
+                        
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
                     $("#search-results").append(newVidDiv);
@@ -69,13 +71,19 @@ $(document).ready(function () {
                         $("#lyric-div").append("<h3><a href=" + lyricUrl + " target=_blank>Lyrics</a></h3>");
                         $("#lyric-div").append("<img id='album' src='" + image + "'</img>");
 
+                        
+                    
+
+
                         var stringTitle = fullTitle;
-                        var splitUp = stringTitle.split(" ", 10);
-                        var artist = splitUp.pop();
-                        var track = splitUp.join(" ");
+                        var split = "by"
+                        var track = stringTitle.slice(0, (stringTitle.indexOf(split)));
+                        var artist = stringTitle.substring(stringTitle.indexOf(split));
 
                         var artistFix = artist.trim();
                         var trackFix = track.trim();
+
+                        
 
 
 
@@ -118,9 +126,9 @@ $(document).ready(function () {
                 console.log("clicked")
                 
                 var playlistItem = $(this).clone(true)
-                $(playlistItem.clone(true)).appendTo("#songs");
-                
-                console.log(playlistItem);
+
+                playlistItem.clone(true).appendTo("#songs")
+
 
         });
 
