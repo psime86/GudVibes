@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    var isAdded;
+
     // On click search
     $("#search-btn").on("click keyup", function (event) {
         if (event.which === 13 || event.type === 'click'){
@@ -34,7 +36,7 @@ $(document).ready(function () {
                     var imgDiv = $("<img class ='t-img z-depth-4'>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<li class ='newVidDiv'>");
-                    var titleDiv = $("<p>").html(videoTitle.substring(0,37) + "...");
+                    var titleDiv = $("<p id='title-div'>").html(videoTitle.substring(0,37) + "...");
                     
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
@@ -46,7 +48,7 @@ $(document).ready(function () {
                     
                 }
 
-                $("#search-results").prepend("<h3 id='results-title'>Search Results</h3>");
+                $("#search-results").append("<h3 id='results-title'>Search Results</h3>");
 
         });
 
@@ -118,6 +120,14 @@ $(document).ready(function () {
 
             $("#search-results").on('click', '.newVidDiv', function() {
 
+                if ($("#serach-results#title-div").text() === $("#songs#title-div").text()) {
+
+                    return;
+
+                }
+
+                else {
+
                 $("#video-div").empty();
 
                 var iframe = $("<iframe width= '560' height= '315' class= 'newVideo'>");
@@ -128,6 +138,8 @@ $(document).ready(function () {
                 var playlistItem = $(this).clone(true)
                 playlistItem.clone(true).appendTo("#songs");
 
+                }
+
         });
 
             $("#songs").on('click', '.newVidDiv', function() {
@@ -137,8 +149,6 @@ $(document).ready(function () {
                 $("#video-div").html(iframe);
                 console.log("clicked")
                 
-                
-
             });
 
             //Future Development of a Playlist (DO NOT USE!!!)
