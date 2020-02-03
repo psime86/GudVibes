@@ -37,7 +37,7 @@ $(document).ready(function () {
                     var titleDiv = $("<p>").html(videoTitle.substring(0,37) + "...");
                     
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
-                    newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult + "enablejsapi=1"))
+                    newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
 
                         
                     newVidDiv.append(titleDiv);
