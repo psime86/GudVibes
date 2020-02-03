@@ -147,8 +147,7 @@ $(document).ready(function () {
                 $("#video-div").html(iframe);
                 console.log("clicked")
 
-                getLyrics();
-                
+                $("#lyric-div").empty();
             });
 
             //Future Development of a Playlist (DO NOT USE!!!)
