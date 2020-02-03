@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    var isAdded;
+
     // On click search
     $("#search-btn").on("click keyup", function (event) {
         if (event.which === 13 || event.type === 'click'){
@@ -125,9 +127,16 @@ $(document).ready(function () {
                 iframe.attr("src", ($(this).attr("data-attr")) + "?autoplay=1");
                 $("#video-div").html(iframe);
                 console.log("clicked")
+
+                    console.log($(this).attr("data-attr"))
+                    console.log($("ul#songs li.newVidDiv").attr("data-attr"));
                 
                 var playlistItem = $(this).clone(true)
                 playlistItem.clone(true).appendTo("#songs");
+                $("ul#songs li.newVidDiv").addClass("updated");
+                console.log($(this).attr("data-attr"))
+                console.log($("ul#songs li.newVidDiv").attr("data-attr"));
+
 
         });
 
@@ -137,9 +146,9 @@ $(document).ready(function () {
                 iframe.attr("src", $(this).attr("data-attr"));
                 $("#video-div").html(iframe);
                 console.log("clicked")
-                
-                
 
+                getLyrics();
+                
             });
 
             //Future Development of a Playlist (DO NOT USE!!!)
