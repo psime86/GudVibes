@@ -21,15 +21,17 @@ body {
 
 #album {
 
-    float: left;
-    margin-right: 20px;
+    float: right;
+    margin-right: 10px;
     margin-bottom: 10px;
+    width: 150px;
 }
 
 #lyrics {
 
     font-size: 14px;
     line-height: 1.6;
+    white-space: pre-wrap;
 }
 
 .newVidDiv {
@@ -67,3 +69,10 @@ p {
     margin: 5px 10px 20px 10px;
 }
 
+#lyrics-div {
+    margin-bottom: 50px;
+}
+
+#lyric-title {
+    font-size: 40px;
+}
