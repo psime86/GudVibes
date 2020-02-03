@@ -37,11 +37,8 @@ $(document).ready(function () {
                     var titleDiv = $("<p>").html(videoTitle);
 
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
-                    newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult + "enablejsapi=1"));
+                    newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult + "enablejsapi=1"))
 
-                    var player;
-
-                    function onYouTubeIframeAPIReady() {
                         
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
