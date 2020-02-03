@@ -26,7 +26,7 @@ $(document).ready(function () {
             .then(function (response) {
 
                 // Empty video div
-                $("#searches").empty();
+                $("#search-results").empty();
                 console.log(response);
                 // For loop to run through response
                 for (var i = 0; i < response.items.length; i++) {
@@ -36,7 +36,7 @@ $(document).ready(function () {
                     var imgDiv = $("<img class ='t-img z-depth-4'>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
                     var newVidDiv = $("<li class ='newVidDiv'>");
-                    var titleDiv = $("<p id='title-div'>").html(videoTitle.substring(0,37) + "...");
+                    var titleDiv = $("<p>").html(videoTitle.substring(0,37) + "...");
                     
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
@@ -44,11 +44,11 @@ $(document).ready(function () {
                         
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
-                    $("#searches").append(newVidDiv);
+                    $("#search-results").append(newVidDiv);
                     
                 }
 
-                $("#searches").append("<h3 id='results-title'>Search Results</h3>");
+                $("#search-results").append("<h3 id='results-title'>Search Results</h3>");
 
         });
 
