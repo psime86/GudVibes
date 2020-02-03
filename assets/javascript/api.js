@@ -15,7 +15,7 @@ $(document).ready(function () {
 
         // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-        "&key=AIzaSyBaestqwPS1ND4XIifl4yncr-EpUHvTPc8";
+        "&key=AIzaSyAUApRYPhnniTgD8CQOM4hqHzbTGgiTRN8";
 
         $.ajax({
             url: queryURL2,
