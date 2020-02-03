@@ -68,7 +68,7 @@ $(document).ready(function () {
                         var image = response.response.hits[0].result.header_image_thumbnail_url
                         $("#lyric-div").append("<img id='album' src='" + image + "'</img>");
                         $("#lyric-div").append("<h3 id='lyric-title'>" + fullTitle + "</h3>");
-                        $("#lyric-div").append("<h3><a class='waves-effect waves-light btn lyric-btn' href=" + lyricUrl + " target='_blank'>Lyrics</a></h3>");
+                        $("#lyric-div").append("<h3><a class='waves-effect waves-light btn lyric-btn' href=" + lyricUrl + " target='_blank'><i class='material-icons right'>music_note</i>Lyrics</a></h3>");
                         
 
                         
