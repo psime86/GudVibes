@@ -13,36 +13,40 @@ $(document).ready(function () {
 
         // YoutTube API and AJAX call
         var queryURL2 = "https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + search +
-        "&key=AIzaSyCS0XzaIbHrCXxUxNeACwaoGhdxahRRhiY";
+        "&key=AIzaSyAXYiyVasBWTwKCBMA2c0vql3Mk1mzIYA4";
 
         $.ajax({
             url: queryURL2,
             method: "GET"
         })
+        
 
             .then(function (response) {
 
                 // Empty video div
                 $("#search-results").empty();
-
-
+                console.log(response);
                 // For loop to run through response
                 for (var i = 0; i < response.items.length; i++) {
                     var videoResult = response.items[i].id.videoId;
                     var videoTitle = response.items[i].snippet.title;
                     var thumbnail = response.items[i].snippet.thumbnails.default.url;
-                    var imgDiv = $("<img class = t-img>").attr("src", thumbnail);
+                    var imgDiv = $("<img class ='t-img z-depth-4'>").attr("src", thumbnail);
                     var video = $("<iframe width= '560' height= '315' class= 'newVideo'>");
-                    var newVidDiv = $("<div class ='newVidDiv'>");
-                    var titleDiv = $("<p>").html(videoTitle);
-
+                    var newVidDiv = $("<li class ='newVidDiv'>");
+                    var titleDiv = $("<p>").html(videoTitle.substring(0,37) + "...");
+                    
                     video.attr("src", "https://www.youtube.com/embed/" + videoResult);
                     newVidDiv.attr("data-attr", ('https://www.youtube.com/embed/' + videoResult));
+
+                        
                     newVidDiv.append(titleDiv);
                     newVidDiv.prepend(imgDiv);
                     $("#search-results").append(newVidDiv);
-
+                    
                 }
+
+                $("#search-results").prepend("<h3 id='results-title'>Search Results</h3>");
 
         });
 
@@ -58,7 +62,7 @@ $(document).ready(function () {
                         url: queryURL,
                         method: "GET"
                     }).then(function (response) {
-
+                        console.log(response);
                         var lyricUrl = response.response.hits[0].result.url
                         var fullTitle = response.response.hits[0].result.full_title
                         var image = response.response.hits[0].result.header_image_thumbnail_url
@@ -67,13 +71,19 @@ $(document).ready(function () {
                         $("#lyric-div").append("<h3><a href=" + lyricUrl + " target=_blank>Lyrics</a></h3>");
                         $("#lyric-div").append("<img id='album' src='" + image + "'</img>");
 
+                        
+                    
+
+
                         var stringTitle = fullTitle;
-                        var splitUp = stringTitle.split(" ", 10);
-                        var artist = splitUp.pop();
-                        var track = splitUp.join(" ");
+                        var split = "by"
+                        var track = stringTitle.slice(0, (stringTitle.indexOf(split)));
+                        var artist = stringTitle.substring(stringTitle.indexOf(split));
 
                         var artistFix = artist.trim();
                         var trackFix = track.trim();
+
+                        
 
 
 
@@ -89,7 +99,7 @@ $(document).ready(function () {
                                 contentType: 'application/json; charset="utf-8"',
                                 success: function (data) {
                                     lyrics = data.result.track.text
-
+                                    console.log(data);
                                     newDiv = $("<div id='lyrics'>")
                                     $("#lyric-div").append(newDiv);
                                     newDiv.append(lyrics);
@@ -111,11 +121,12 @@ $(document).ready(function () {
                 $("#video-div").empty();
 
                 var iframe = $("<iframe width= '560' height= '315' class= 'newVideo'>");
-                iframe.attr("src", $(this).attr("data-attr"));
+                iframe.attr("src", ($(this).attr("data-attr")) + "?autoplay=1");
                 $("#video-div").html(iframe);
                 console.log("clicked")
+                
                 var playlistItem = $(this).clone(true)
-                $(playlistItem.clone(true)).appendTo("#songs");
+                playlistItem.clone(true).appendTo("#songs");
 
         });
 
@@ -125,7 +136,34 @@ $(document).ready(function () {
                 iframe.attr("src", $(this).attr("data-attr"));
                 $("#video-div").html(iframe);
                 console.log("clicked")
+                
+                
 
             });
+
+            //Future Development of a Playlist (DO NOT USE!!!)
+
+            // function playlistFunction () {
+            //     currentSong = 0;
+            //     var vidSource = $(".newVidDiv").attr("data-attr");
+            //     console.log(vidSource);
+            //     $(".newVideo")[currentSong].src = vidSource[currentSong];
+            //     $("#play-btn").click(function (event) {
+            //         event.preventDefault();
+            //         $(".newVideo")[currentSong].src = this;
+            //         currentSong = $(this).parent().index();
+            //         console.log("play");
+            //     });
+
+                
+            //     console.log(currentSong);
+                
+            // }
+
+
+            // playlistFunction();
+             
+
+            
 
         });

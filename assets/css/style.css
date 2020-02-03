@@ -12,7 +12,7 @@ body {
 
 .brand-logo {
     margin-left: 20px;
-    
+    font-family: 'Monoton', cursive;
 }
 
 #video-div {
@@ -41,5 +41,29 @@ body {
 }
 
 .t-img:hover {
-    border: solid green;
+    box-shadow: inset 0 0 0 25px blueviolet;
+    cursor: pointer;
+    -webkit-transformation: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+
 }
+
+li {
+    list-style-type: none;
+}
+
+#results-title {
+    text-align: center;
+}
+
+#img-div {
+    overflow: auto;
+}
+
+
+
+p {
+    margin: 5px 10px 20px 10px;
+}
+
