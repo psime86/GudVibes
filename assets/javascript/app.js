@@ -11,10 +11,10 @@ $("#shuffle-btn").on("click", function() {
 });
 
 //play button click event
-$("#play-btn").on("click", function() {
-  console.log("play");
+// $("#play-btn").on("click", function() {
+//   console.log("play");
 
-});
+// });
 
 //delete button click event
 $("#delete-btn").on("click", function() {

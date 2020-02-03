@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project1</title>
+    <title>ProjectONE</title>
     <!--Materialize Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Icon Link-->
-    <link rel="shortcut icon" href="assets/images/music-note.ico" />
+    <link rel="shortcut icon" href="assets/images/music-note.ico"/>
     <!--CSS Reset Link-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!--Materialize CSS Link-->
@@ -21,7 +21,7 @@
 <body>
     <nav class="deep-purple darken-1" id="header">
         <div class="nav-wrapper valign-wrapper">
-          <p href="#" class="brand-logo" >Project 1</p>
+          <p href="#" class="brand-logo center" >GudVibes</p>
         </div>
       </nav>
     <div class="container">
@@ -40,16 +40,14 @@
                         </button>
                         <!--Sidenav button-->
                         <ul id="slide-out" class="sidenav">
-                            <li><a href="#!"><i class="material-icons">playlist_play</i>Song Playlist</a></li>
-                            <li><div id="songs"></div></li>
+                            <li><a href="#!"><i class="material-icons">star_border</i>Favorite Songs</a></li>
+                            <ul id="songs"></ul>
                             <li><div class="divider"></div></li>
-                            <li><a class="waves-effect waves-light btn" id="shuffle-btn"><i class="material-icons left">shuffle</i>Shuffle Play</a></li>
-                            <li><a class="waves-effect waves-light btn" id="play-btn"><i class="material-icons left">play_circle_outline</i>Play</a></li>
-                            <li><a class="waves-effect waves-light btn" id="delete-btn"><i class="material-icons left">delete</i>Delete Playlist</a></li>
+                            <li><a class="waves-effect waves-light btn" id="delete-btn"><i class="material-icons left">delete</i>Delete Favorites</a></li>
                             
                         </ul>
                         <!--Actual Button for the Sidnav-->
-                        <a data-target="slide-out" class="waves-effect waves-light btn sidenav-trigger"><i class="material-icons right">playlist_add_check</i>Playlist</a>
+                        <a data-target="slide-out" class="waves-effect waves-light btn sidenav-trigger"><i class="material-icons right">star</i>Favorites</a>
                     </div>
                     
                     <div class="video-container" id="video-div">
@@ -76,7 +74,31 @@
     
 
 
-
+    <footer class="page-footer deep-purple darken-1 ">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Check out our Other Work</h5>
+              
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3 creators" target="_blank" href="https://r-andrew-dev.github.io/Bootstrap-Portfolio/">Rachael Andrew</a></li>
+                <li><a class="grey-text text-lighten-3 creators" target="_blank" href="https://psime86.github.io/Basic-Portfolio/index.html">Patrick Sime</a></li>
+                <li><a class="grey-text text-lighten-3 creators" target="_blank" href="#!">Alicia Forstner</a></li>
+                <li><a class="grey-text text-lighten-3 creators" target="_blank" href="https://chefdaveyboy.github.io/Responsive-Portfolio/">David Koeller</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright deep-purple darken-2">
+          <div class="container">
+          © Powered by Materialize
+          
+          </div>
+        </div>
+      </footer>
 <!--jQuery-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--api-youtube.js link-->
