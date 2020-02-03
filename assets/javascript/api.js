@@ -48,7 +48,7 @@ $(document).ready(function () {
                     
                 }
 
-                $("#search-results").preppend("<h3 id='results-title'>Search Results</h3>");
+                $("#search-results").prepend("<h3 id='results-title'>Search Results</h3>");
 
         });
 
