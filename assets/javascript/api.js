@@ -118,6 +118,7 @@ $(document).ready(function () {
 
             $("#search-results").on('click', '.newVidDiv', function() {
 
+                if ()
                 $("#video-div").empty();
 
                 var iframe = $("<iframe width= '560' height= '315' class= 'newVideo'>");

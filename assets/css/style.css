@@ -63,7 +63,11 @@ li {
     overflow: auto;
 }
 
-
+.creators:hover {
+    -webkit-transform: scale(0.9);
+    -ms-transfrom: scale(0.9);
+    transform: scale(0.9);
+}
 
 p {
     margin: 5px 10px 20px 10px;
