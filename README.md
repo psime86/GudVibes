@@ -19,3 +19,5 @@ GudVibes is a music to lyric sync tool. Utilizing the youtube data API to pair v
 <h3>Demonstration of GudVibes</h3>
 
 <img src="assets/images/GudVibes.gif"></img>
+
+https://psime86.github.io/GudVibes/
